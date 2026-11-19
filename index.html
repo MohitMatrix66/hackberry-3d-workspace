@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Interactive 3D workspace of an EMG-controlled bionic hand based on the open-source HACKberry design." />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Bionic Hand 3D Workspace</title>
+  </head>
+  <body>
+    <div id="app" class="app">
+      <header class="topbar">
+        <div class="brand">
+          <img class="brand-logo" src="./favicon.svg" alt="" width="28" height="28" />
+          <div>
+            <h1 class="brand-title">Bionic Hand 3D Workspace</h1>
+            <p class="brand-sub">EMG-controlled prosthetic hand · HACKberry design · right hand</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn ghost" data-action="about" type="button">About</button>
+          <button class="btn ghost" data-action="help" type="button">Shortcuts</button>
+          <button class="btn icon" data-action="theme" type="button" title="Switch light/dark theme" aria-label="Switch theme"></button>
+        </div>
+      </header>
+
+      <aside class="panel left" aria-label="Project browser">
+        <nav class="tabs" role="tablist">
+          <button class="tab active" role="tab" data-tab="assembly" type="button">Assembly</button>
+          <button class="tab" role="tab" data-tab="parts" type="button">Parts</button>
+          <button class="tab" role="tab" data-tab="print" type="button">Print plan</button>
+        </nav>
+        <section class="tab-panel active" data-panel="assembly" id="assembly-panel"></section>
+        <section class="tab-panel" data-panel="parts" id="parts-panel"></section>
+        <section class="tab-panel" data-panel="print" id="print-panel"></section>
+      </aside>
+
+      <main class="viewport" id="viewport">
+        <div class="toolbar" id="toolbar" role="toolbar" aria-label="Viewer tools"></div>
+        <div class="viewbar" id="viewbar"></div>
+        <div class="legend" id="legend"></div>
+        <div class="mechanism" id="mechanism"></div>
+        <div class="inspect-banner" id="inspect-banner" hidden></div>
+        <div class="loading" id="loading">
+          <div class="loading-card">
+            <div class="loading-title">Loading the HACKberry hand…</div>
+            <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+            <div class="loading-detail" id="loading-detail">Reading assembly data</div>
+          </div>
+        </div>
+      </main>
+
+      <aside class="panel right" id="inspector" aria-label="Inspector"></aside>
+
+      <footer class="statusbar" id="statusbar"></footer>
+    </div>
+
+    <dialog class="modal" id="modal">
+      <div class="modal-body" id="modal-body"></div>
+      <form method="dialog" class="modal-actions"><button class="btn primary" type="submit">Close</button></form>
+    </dialog>
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

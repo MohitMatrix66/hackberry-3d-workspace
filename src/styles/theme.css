@@ -1,0 +1,45 @@
+/* Design tokens. Dark is the default workspace theme; [data-theme="light"] switches. */
+:root {
+  --font-ui: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Cascadia Code', Consolas, 'SFMono-Regular', Menlo, monospace;
+
+  --bg: #0e1319;
+  --bg-viewport: #121922;
+  --panel: #161d26;
+  --panel-2: #1c2530;
+  --panel-3: #232e3b;
+  --line: #2a3542;
+  --text: #e6ebf0;
+  --text-2: #a9b4c0;
+  --text-3: #7d8996;
+  --accent: #e07a2e;
+  --accent-ink: #1b1209;
+  --teal: #2a9d8f;
+  --blue: #5b8def;
+  --danger: #e5604f;
+  --ok: #3fb68b;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --viewport-grad-a: #18212c;
+  --viewport-grad-b: #0d1218;
+}
+
+:root[data-theme='light'] {
+  --bg: #eef1f4;
+  --bg-viewport: #f4f6f8;
+  --panel: #ffffff;
+  --panel-2: #f5f7f9;
+  --panel-3: #e9edf1;
+  --line: #dde3e9;
+  --text: #17202a;
+  --text-2: #4a5663;
+  --text-3: #6d7987;
+  --accent: #c8631c;
+  --accent-ink: #ffffff;
+  --teal: #1f8a7d;
+  --blue: #2f6fdb;
+  --shadow: 0 10px 30px rgba(20, 30, 45, 0.12);
+  --viewport-grad-a: #fbfcfd;
+  --viewport-grad-b: #e3e8ee;
+}

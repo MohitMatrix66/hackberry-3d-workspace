@@ -1,0 +1,24 @@
+# dependencies and build output
+node_modules/
+dist/
+.vite/
+coverage/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# editors and OS files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Office lock files and local secrets
+~$*
+.env
+.env.*

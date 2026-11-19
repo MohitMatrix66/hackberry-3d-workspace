@@ -1,0 +1,159 @@
+/* App shell: top bar, left browser, 3D viewport, right inspector, status bar. */
+.app {
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr) 340px;
+  grid-template-rows: 56px minmax(0, 1fr) 30px;
+  grid-template-areas:
+    'top top top'
+    'left view right'
+    'status status status';
+  height: 100vh;
+  overflow: hidden;
+}
+
+.topbar {
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.brand-title {
+  font-size: 15.5px;
+  font-weight: 650;
+  letter-spacing: 0.1px;
+}
+
+.brand-sub {
+  font-size: 12px;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.panel {
+  min-height: 0;
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+}
+
+.panel.left {
+  grid-area: left;
+  border-right: 1px solid var(--line);
+}
+
+.panel.right {
+  grid-area: right;
+  border-left: 1px solid var(--line);
+  overflow: auto;
+}
+
+.tabs {
+  display: flex;
+  gap: 2px;
+  padding: 8px 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.tab {
+  flex: 1;
+  padding: 9px 6px 10px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--text-2);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.tab-panel {
+  display: none;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.tab-panel.active {
+  display: flex;
+}
+
+.viewport {
+  grid-area: view;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  background: radial-gradient(ellipse at 50% 35%, var(--viewport-grad-a), var(--viewport-grad-b));
+  overflow: hidden;
+}
+
+.viewport canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+.statusbar {
+  grid-area: status;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 14px;
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text-3);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.statusbar .grow {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* narrow screens: stack the side panels under the viewport */
+@media (max-width: 1100px) {
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 56px 58vh auto auto 30px;
+    grid-template-areas: 'top' 'view' 'right' 'left' 'status';
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .panel.left,
+  .panel.right {
+    border: 0;
+    border-top: 1px solid var(--line);
+    max-height: 70vh;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+}

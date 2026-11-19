@@ -1,0 +1,9 @@
+# Normalise line endings to LF for all text files (matches .editorconfig)
+* text=auto eol=lf
+
+# Never touch binary assets
+*.stl binary
+*.png binary
+*.jpg binary
+*.pdf binary
+*.svg text

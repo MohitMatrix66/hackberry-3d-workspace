@@ -1,0 +1,25 @@
+{
+  "name": "bionic-hand-3d-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive 3D workspace for an EMG-controlled bionic hand based on the open-source HACKberry design: explore the assembly, every printable STL part, the servo layout and the finger mechanism.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "assets": "python scripts/build_assets.py --hackberry ../HACKberry"
+  },
+  "dependencies": {
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "vite": "5.4.11",
+    "vitest": "2.1.8"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
